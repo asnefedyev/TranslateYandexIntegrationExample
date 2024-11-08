@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "ExampleSpace";
+
+package example;
+
+message TranslateRequest {
+  string sourceLang = 1;
+  string targetLang = 2;
+  string translateText = 3;
+
+}
+
+message TranslateResponse {
+  string translateResult = 1;
+  string sourceHash = 2;
+  string targetHash = 3;
+}
+
+service Translater {
+  rpc DoTranslate (TranslateRequest) returns (TranslateResponse);
+}
